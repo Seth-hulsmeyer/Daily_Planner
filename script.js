@@ -8,12 +8,20 @@
 for(i = 900; i < 1800; i += 100) {
     var time = i
     //    time = time - 12
-    //work on spacing
+    if(i > 1200){
+        time -= 1200
         var wrapper = $("<span class = 'row'></span>");
-        wrapper.append("<div class = 'hour'>" + time + "</div>");
-        wrapper.append("<textarea class = 'time-block'>Test</textarea>");
-        wrapper.append("<button class = 'saveBtn'>Save</button>");
+        wrapper.append("<div class = 'hour col-md-1'>" + time + "</div>");
+        wrapper.append("<textarea class = 'time-block col-md-10'>Test</textarea>");
+        wrapper.append("<button class = 'saveBtn col-md-1'>Save</button>");
         $(".container").append(wrapper);
+    }else{
+        var wrapper = $("<span class = 'row'></span>");
+        wrapper.append("<div class = 'hour col-md-1'>" + time + "</div>");
+        wrapper.append("<textarea class = 'time-block col-md-10'>Test</textarea>");
+        wrapper.append("<button class = 'saveBtn col-md-1'>Save</button>");
+        $(".container").append(wrapper);
+    }
 }
 
 
