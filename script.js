@@ -13,15 +13,15 @@ for(i = 9; i < 18; i += 1) {
      //if statement to get the time from military time to 12-hr standard
      if(i > 12){
          time -= 12
-        //  timeFormat(time);
+        //  timeFormat(time); //option for later
          wrapper.append("<div class = 'hour col-md-1'>" + time + "PM" + "</div>");
      }else{
-        //  timeFormat(time);
+        //  timeFormat(time); //option for later
          wrapper.append("<div class = 'hour col-md-1'>" + time + "AM" + "</div>");
      }
 
-     wrapper.append("<textarea class = 'description col-md-10'>Test</textarea>");
-     wrapper.append("<button class = 'saveBtn col-md-1'>Save</button>");
+     wrapper.append("<textarea class = 'description col-md-10' id = 'task'>Test</textarea>");
+     wrapper.append("<button class = 'saveBtn col-md-1' id = 'button[i]'>Save</button>");
 
 
     $(".container").append(wrapper);
@@ -47,3 +47,14 @@ for(i = 9; i < 18; i += 1) {
 
 //local storage used to save tasks on each hour by clicking save button
     //event listener
+var saveTask = document.getElementById("button[i]")
+var inputText = document.getElementById("task")
+// Event listener listens for btn1 to be pressed and
+saveTask.addEventListener("click", function (event) {
+    event.preventDefault();
+    var toDoItem = inputText.value
+    localStorage.setItem("toDoItem", toDoItem);
+})
+//Retrieves data from local storage, and saves on refresh
+var textEntered = localStorage.getItem("toDoItem");
+inputText.textContent = textEntered;
